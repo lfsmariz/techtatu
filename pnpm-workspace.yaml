@@ -1,0 +1,16 @@
+allowBuilds:
+  ',': true
+  a: true
+  b: true
+  d: true
+  e: true
+  esbuild: true
+  h: true
+  i: true
+  l: true
+  p: true
+  r: true
+  s: true
+  sharp: true
+  u: true
+minimumReleaseAge: 0

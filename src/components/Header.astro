@@ -1,0 +1,293 @@
+---
+import { SITE_TITLE } from "../consts";
+import HeaderLink from "./HeaderLink.astro";
+import { withBase, withoutBase } from "../lib/paths.js";
+
+const pathname = withoutBase(Astro.url.pathname);
+const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
+const canonicalPath = isEnglish ? pathname.slice(3) || "/" : pathname;
+const localizedPath = (path: string) =>
+	withBase(isEnglish ? `/en${path === "/" ? "" : path}` : path);
+const languagePath = isEnglish
+	? canonicalPath
+	: `/en${canonicalPath === "/" ? "" : canonicalPath}`;
+const languageHref = `${withBase(languagePath)}${Astro.url.search}`;
+const homeHref = localizedPath("/");
+const locale = isEnglish ? "en" : "pt-BR";
+---
+
+<header>
+	<nav>
+		<h2><a href={homeHref}>{SITE_TITLE}</a></h2>
+		<div class="internal-links">
+			<HeaderLink href={localizedPath("/")}>Home</HeaderLink>
+			<HeaderLink href={localizedPath("/blog")}>Blog</HeaderLink>
+			<HeaderLink href={localizedPath("/about")}>About</HeaderLink>
+		</div>
+		<div class="social-links">
+			<a href="https://www.linkedin.com/in/luizfilipesmariz/" target="_blank">
+				<span class="sr-only">Go to my GitHub repo</span>
+				<svg
+					viewBox="0 0 26 26"
+					aria-hidden="true"
+					width="32"
+					height="32"
+				>
+					<path
+						fill="currentColor"
+						d="M8,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"
+					></path>
+				</svg>
+			</a>
+			<a href="https://github.com/lfsmariz" target="_blank">
+				<span class="sr-only">Go to my GitHub repo</span>
+				<svg
+					viewBox="0 0 16 16"
+					aria-hidden="true"
+					width="32"
+					height="32"
+					><path
+						fill="currentColor"
+						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+					></path></svg
+				>
+			</a>
+			<a href={withBase('/rss.xml')} target="_blank">
+				<span class="sr-only">Go to my RSS feed</span>
+				<svg
+					fill="currentColor"
+					height="30"
+					width="30"
+					viewBox="-271 273 256 256"
+					><g>
+						<path
+							d="M-271,360v48.9c31.9,0,62.1,12.6,84.7,35.2c22.6,22.6,35.1,52.8,35.1,84.8v0.1h49.1c0-46.6-19-88.7-49.6-119.4 C-182.2,379-224.4,360.1-271,360z"
+						></path>
+						<path
+							d="M-237,460.9c-9.4,0-17.8,3.8-24,10s-10,14.6-10,24c0,9.3,3.8,17.7,10,23.9c6.2,6.1,14.6,9.9,24,9.9s17.8-3.7,24-9.9 s10-14.6,10-23.9c0-9.4-3.8-17.8-10-24C-219.2,464.7-227.6,460.9-237,460.9z"
+						></path>
+						<path
+							d="M-90.1,348.1c-46.3-46.4-110.2-75.1-180.8-75.1v48.9C-156.8,322-64.1,414.9-64,529h49C-15,458.4-43.7,394.5-90.1,348.1z"
+						></path>
+					</g>
+				</svg>
+			</a>
+		</div>
+		<div class="header-controls">
+			<div class="language-switcher" aria-label={isEnglish ? "Select language" : "Selecionar idioma"}>
+				<a
+					class:list={{ active: !isEnglish }}
+					href={isEnglish ? languageHref : undefined}
+					aria-current={!isEnglish ? "page" : undefined}
+					aria-label="Português (Brasil)"
+				>PT</a>
+				<span aria-hidden="true">/</span>
+				<a
+					class:list={{ active: isEnglish }}
+					href={!isEnglish ? languageHref : undefined}
+					aria-current={isEnglish ? "page" : undefined}
+					aria-label="English"
+				>EN</a>
+			</div>
+			<button class="theme-toggle" type="button" data-locale={locale} aria-label={isEnglish ? "Enable dark theme" : "Ativar tema escuro"} aria-pressed="false">
+			<span class="theme-icon" aria-hidden="true">☾</span>
+			<span class="theme-label">{isEnglish ? "Dark theme" : "Tema escuro"}</span>
+			</button>
+		</div>
+	</nav>
+</header>
+<script>
+	import { toggleTheme } from '../scripts/theme.js';
+
+	const initializeThemeToggle = () => {
+		const themeToggle = document.querySelector('.theme-toggle');
+		if (!themeToggle) return;
+
+		const updateThemeToggle = () => {
+			const isDark = document.documentElement.dataset.theme === 'dark';
+			const isEnglish = themeToggle.getAttribute('data-locale') === 'en';
+			themeToggle.setAttribute('aria-pressed', String(isDark));
+			themeToggle.setAttribute('aria-label', isDark
+				? (isEnglish ? 'Enable light theme' : 'Ativar tema claro')
+				: (isEnglish ? 'Enable dark theme' : 'Ativar tema escuro'));
+			const icon = themeToggle.querySelector('.theme-icon');
+			const label = themeToggle.querySelector('.theme-label');
+			if (icon) icon.textContent = isDark ? '☀' : '☾';
+			if (label) label.textContent = isDark
+				? (isEnglish ? 'Light theme' : 'Tema claro')
+				: (isEnglish ? 'Dark theme' : 'Tema escuro');
+		};
+
+		updateThemeToggle();
+		if (themeToggle.dataset.themeToggleBound === 'true') return;
+
+		themeToggle.dataset.themeToggleBound = 'true';
+		themeToggle.addEventListener('click', () => {
+			toggleTheme(document);
+			updateThemeToggle();
+		});
+	};
+
+	initializeThemeToggle();
+	document.addEventListener('astro:page-load', initializeThemeToggle);
+</script>
+<style>
+	header {
+		margin: 0;
+		padding: 0 clamp(1rem, 4vw, 2.5rem);
+		background: rgb(var(--surface));
+		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+	}
+	h2 {
+		margin: 0;
+		font-size: 1em;
+		line-height: 1;
+		white-space: nowrap;
+	}
+
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+	}
+	nav {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 1rem clamp(1rem, 2.5vw, 2.25rem);
+		max-width: 1200px;
+		min-height: 4.5rem;
+		margin: 0 auto;
+	}
+	.internal-links {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	nav a {
+		padding: 0.75rem 0.5rem;
+		color: rgb(var(--black));
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+	}
+	.internal-links {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: clamp(0.25rem, 1vw, 0.85rem);
+		min-width: 0;
+		white-space: nowrap;
+	}
+	.header-controls {
+		display: inline-flex;
+		align-items: center;
+		gap: clamp(0.5rem, 1.4vw, 1rem);
+		margin-left: 0.25rem;
+	}
+	.language-switcher {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.28rem;
+		color: rgb(var(--gray-dark));
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+	}
+	.language-switcher a {
+		padding: 0.38rem 0.28rem;
+		border: 0;
+		border-radius: 0.3rem;
+		color: inherit;
+		text-decoration: none;
+		transition: color 180ms ease, background 180ms ease;
+	}
+	.language-switcher a:hover,
+	.language-switcher a:focus-visible {
+		color: var(--accent);
+		background: rgb(var(--gray-light) / 35%);
+	}
+	.language-switcher a.active {
+		color: var(--accent);
+	}
+	.language-switcher span {
+		opacity: 0.45;
+	}
+	.theme-toggle {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		padding: 0.45rem 0.7rem;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 999px;
+		background: rgb(var(--surface-raised));
+		color: rgb(var(--gray-dark));
+		font: inherit;
+		font-size: 0.78rem;
+		cursor: pointer;
+		transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+	}
+	.theme-toggle:hover { border-color: var(--accent); transform: translateY(-1px); }
+	.theme-toggle:focus-visible,
+	.language-switcher a:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+	}
+	.theme-icon { font-size: 1rem; line-height: 1; }
+	nav a.active {
+		text-decoration: none;
+		border-bottom-color: var(--accent);
+	}
+	.social-links,
+	.social-links a {
+		display: flex;
+	}
+	.social-links {
+		align-items: center;
+		gap: 0.35rem;
+		margin-left: auto;
+	}
+	.social-links a {
+		padding: 0.45rem;
+		border-bottom: 0;
+	}
+	.theme-toggle {
+		margin-left: 0;
+		white-space: nowrap;
+	}
+	@media (max-width: 900px) {
+		nav {
+			flex-wrap: wrap;
+		}
+		.internal-links {
+			position: static;
+			order: 4;
+			width: 100%;
+			justify-content: center;
+			transform: none;
+		}
+	}
+	@media (max-width: 720px) {
+		header { padding-inline: 1rem; }
+		nav {
+			gap: 0.25rem 0.75rem;
+			min-height: 0;
+			padding-block: 0.65rem;
+		}
+		.internal-links {
+			justify-content: flex-start;
+			margin-inline: -0.5rem;
+		}
+		.social-links {
+			display: none;
+		}
+		.theme-toggle {
+			margin-left: auto;
+			padding: 0.5rem 0.65rem;
+		}
+		.header-controls {
+			margin-left: auto;
+			gap: 0.45rem;
+		}
+		.language-switcher { font-size: 0.68rem; }
+		.theme-label { display: none; }
+	}
+</style>

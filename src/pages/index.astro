@@ -1,0 +1,34 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<meta name="google-site-verification" content="vALFCwAYmel8QdL0Oq3636kTCVfmGYSNmdsFj8L6r1E" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>🚀 Bem vindo ao Tech Tatu</h1>
+			<p>
+				Bem-vindo ao meu espaço digital! Aqui você encontrará conteúdo sobre desenvolvimento de software, 
+				desde Golang e Java até Python e TypeScript, além de insights sobre hardware, gadgets e as 
+				últimas tendências do mundo tech. Como Engenheiro de Software especialista em sistemas 
+				distribuídos e processamento de dados em tempo real, compartilho experiências práticas 
+				sobre arquiteturas escaláveis e soluções de alto desempenho.
+			</p>
+			<p>
+				Explore artigos sobre segurança digital, privacidade, carreira e cultura tech, incluindo 
+				dicas sobre como construir equipes fortes. Se você é 
+				desenvolvedor, entusiasta de hardware ou simplesmente curioso sobre tecnologia, 
+				você está no lugar certo para aprender e se inspirar!
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
