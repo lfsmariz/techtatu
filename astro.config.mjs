@@ -6,8 +6,8 @@ import { defineConfig } from 'astro/config';
 import remarkMermaid from './src/lib/remark-mermaid.js';
 
 export default defineConfig({
-	site: 'https://lfsmariz.github.io',
-	base: '/techtatu',
+	site: 'https://www.techtatu.com',
+	base: '/',
 	markdown: {
 		remarkPlugins: [remarkMermaid],
 	},
