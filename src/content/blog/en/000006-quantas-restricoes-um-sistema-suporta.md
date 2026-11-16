@@ -134,4 +134,4 @@ That brings us to another problem, one that's closer to everyday engineering and
 
 - [Z3 Guide: Propositional Logic](https://microsoft.github.io/z3guide/docs/logic/propositional-logic/). An introduction to satisfiability in propositional logic and the relationship between validity and satisfiability.
 - [Z3 Guide: Introduction](https://microsoft.github.io/z3guide/programming/Z3%20Python/Introduction/). Examples of how a solver checks sets of constraints.
-- [Constraint Satisfaction Problems, Saarland University](https://www.ps.uni-saarland.de/courses/cp-ss05/slides/lecture03.pdf). Teaching material on variables, domains, and constraints.
+- [Harvard CS50 AI: Constraint Satisfaction](https://cs50.harvard.edu/extension/ai/2020/fall/notes/3/). Course notes explaining variables, domains, and constraints through practical examples.
