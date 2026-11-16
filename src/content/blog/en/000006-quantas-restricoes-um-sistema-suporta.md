@@ -3,7 +3,7 @@ title: 'How Many Constraints Can a System Handle?'
 description: 'A conversation about satisfiability, sets, and the limits of decisions in software'
 pubDate: '2026-11-15'
 heroImage: '../../../assets/software-develop.webp'
-draft: true
+draft: false
 locale: en
 translationKey: 000006-quantas-restricoes-um-sistema-suporta
 ---
