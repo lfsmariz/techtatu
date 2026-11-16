@@ -128,5 +128,5 @@ Mas essa conversa fica para o próximo texto. Por enquanto, me interessa guardar
 
 - [Z3 Guide: Propositional Logic](https://microsoft.github.io/z3guide/docs/logic/propositional-logic/). Introdução à satisfatibilidade em lógica proposicional e às relações entre validade e satisfatibilidade.
 - [Z3 Guide: Introduction](https://microsoft.github.io/z3guide/programming/Z3%20Python/Introduction/). Exemplos de como um *solver* verifica conjuntos de restrições.
-- [Constraint Satisfaction Problems, Saarland University](https://www.ps.uni-saarland.de/courses/cp-ss05/slides/lecture03.pdf). Material didático sobre variáveis, domínios e restrições.
+- [Harvard CS50 AI: Constraint Satisfaction](https://cs50.harvard.edu/extension/ai/2020/fall/notes/3/). Notas de aula sobre variáveis, domínios e restrições, com exemplos práticos.
 
