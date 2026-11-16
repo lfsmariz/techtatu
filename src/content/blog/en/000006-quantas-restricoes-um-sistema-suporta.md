@@ -8,7 +8,7 @@ locale: en
 translationKey: 000006-quantas-restricoes-um-sistema-suporta
 ---
 
-Imagine I ask you to do something fairly simple: look right or left. You don't have to do both, just pick a side. So far, hardly a major cognitive challenge, I hope. Now I add a rule: you're not allowed to look right. Fine, look left. But I decide to make the game a little more interesting. You're not allowed to look left either. Congratulations, we've managed to make a task impossible without writing a single line of code.
+Imagine I ask you to do something fairly simple: look right or left. You don't have to do both, just pick a side. So far, hardly a major cognitive challenge, I hope. Now I add a rule: you're not allowed to look right. Fine, look left. But I decide to make the game a little more interesting. You're not allowed to look left either.
 
 What interests me isn't exactly *why* you can't follow all three rules. That part seems obvious. I want to understand **at what point a set of constraints stops admitting a solution**, and how much that idea can tell us about the decisions we make when building software. Maybe there's a more interesting way to look at a system's architecture than simply listing its features. What if we started with the possibilities our own decisions eliminate?
 
