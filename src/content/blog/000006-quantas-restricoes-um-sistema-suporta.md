@@ -102,7 +102,7 @@ flowchart TD
 
 Mas cuidado com a analogia. Na matemática, uma especificação pode ser insatisfatível porque nenhuma solução possível respeita todas as restrições. Na engenharia, uma arquitetura **já implementada** pode simplesmente não atender a um requisito novo, embora outra arquitetura consiga. São situações diferentes.
 
-Também não podemos dizer que todo trade-off produz uma contradição. Escolher memória local para sessões pode reduzir custo e complexidade inicial, ao preço de dificultar certas estratégias de distribuição. Isso é uma decisão com consequências. Só vira incompatibilidade lógica se formularmos condições que realmente não possam coexistir no modelo considerado.
+Nem todo trade-off produz uma contradição, mas toda decisão arquitetural assumida como condição impõe alguma restrição ao sistema. Essa restrição pode eliminar possibilidades ou ser redundante diante das condições que já existem. Escolher memória local para sessões, por exemplo, pode reduzir custo e complexidade inicial, ao preço de dificultar certas estratégias de distribuição. Nada disso torna o sistema automaticamente insatisfatível. A contradição só aparece quando exigimos condições que não podem coexistir no modelo considerado.
 
 E existe outro detalhe: satisfatibilidade não nos diz quanto custa encontrar ou implementar a solução. Um conjunto de requisitos pode ser satisfatível e ainda assim exigir uma mudança economicamente absurda, ou uma busca computacional difícil. A lógica responde se existe solução **dentro do modelo**. Ela não entrega automaticamente uma estimativa de esforço, um diagrama de arquitetura ou um orçamento aprovado.
 
