@@ -8,7 +8,7 @@ locale: pt-BR
 translationKey: 000006-quantas-restricoes-um-sistema-suporta
 ---
 
-Imagina que eu te peça uma coisa relativamente simples: olhe para a direita ou para a esquerda. Não precisa fazer os dois, basta escolher um lado. Até aqui, nenhum grande desafio cognitivo, espero. Agora eu acrescento uma regra: você não pode olhar para a direita. Tudo bem, olhe para a esquerda. Só que eu resolvi complicar um pouco a brincadeira. Também não pode olhar para a esquerda. Parabéns, conseguimos criar uma tarefa impossível sem escrever uma única linha de código.
+Imagina que eu te peça uma coisa relativamente simples: olhe para a direita ou para a esquerda. Não precisa fazer os dois, basta escolher um lado. Até aqui, nenhum grande desafio cognitivo, espero. Agora eu acrescento uma regra: você não pode olhar para a direita. Tudo bem, olhe para a esquerda. Só que eu resolvi complicar um pouco a brincadeira. Também não pode olhar para a esquerda.
 
 A pergunta que me interessa não é exatamente *por que* você não consegue cumprir as três regras. Isso parece evidente. Quero entender **em que momento um conjunto de restrições deixa de admitir uma solução**, e o quanto essa ideia ajuda a pensar nas decisões que tomamos ao desenvolver software. Talvez exista uma forma mais interessante de olhar para a arquitetura de um sistema do que apenas enumerar as funcionalidades que ele oferece. E se começássemos pelas possibilidades que nossas próprias decisões eliminam?
 
