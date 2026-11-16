@@ -3,7 +3,7 @@ title: 'Quantas restrições um sistema suporta?'
 description: 'Uma conversa sobre satisfatibilidade, conjuntos e os limites das decisões em software'
 pubDate: '2026-11-15'
 heroImage: '../../assets/software-develop.webp'
-draft: true
+draft: false
 locale: pt-BR
 translationKey: 000006-quantas-restricoes-um-sistema-suporta
 ---
