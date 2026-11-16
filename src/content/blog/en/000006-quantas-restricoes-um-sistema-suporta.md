@@ -108,7 +108,7 @@ flowchart TD
 
 But there's a catch in this analogy. In mathematics, a specification can be unsatisfiable because no possible solution respects every constraint. In engineering, an architecture that's **already implemented** might simply fail to meet a new requirement even though another architecture could. Those are different situations.
 
-We also can't claim that every trade-off creates a contradiction. Keeping sessions in local memory can reduce initial cost and complexity while making certain distribution strategies harder. That's a decision with consequences. It becomes a logical incompatibility only if we formulate conditions that genuinely cannot coexist within the model we're considering.
+Not every trade-off creates a contradiction, but every architectural decision we adopt as a condition imposes some constraint on the system. That constraint may rule out possibilities or be redundant given the conditions already in place. Keeping sessions in local memory, for example, can reduce initial cost and complexity while making certain distribution strategies harder. None of that automatically makes the system unsatisfiable. A contradiction only arises when we require conditions that cannot coexist within the model we're considering.
 
 There's another detail: satisfiability doesn't tell us how expensive it is to find or implement a solution. A set of requirements can be satisfiable and still demand an economically absurd change, or a computationally difficult search. Logic tells us whether a solution exists **within the model**. It doesn't automatically give us an effort estimate, an architecture diagram, or an approved budget.
 
